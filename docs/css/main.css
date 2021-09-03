@@ -233,23 +233,23 @@ input:checked + .slider:before {
 }
 
 .chart__legend--item.one-color:before {
-    background-color: #081C29;
+    background-color: #00827E;
 }
 
 .chart__legend--item.more-colors-first:before {
-    background-color: #081C29;
+    background-color: #22505F;
 }
 
 .chart__legend--item.more-colors-second:before {
-    background-color: #99E6FC;
+    background-color: #00827E;
 }
 
 .chart__legend--item.more-colors-third:before {
-    background-color: #526069;
+    background-color: #4CB8E8;
 }
 
 .chart__legend--item.more-colors-fourth:before {
-    background-color: #DEDEDE;
+    background-color: #919191;
 }
 
 /* VISUALIZACIÓN */

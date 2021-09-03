@@ -1,8 +1,8 @@
 let tooltip = d3.select('#chartTooltip');
 
 //Variables para colores
-let one_color = '#081C29';
-let more_colors_first = '#081C29', more_colors_second = '#99E6FC', more_colors_third = '#526069', more_colors_fourth = '#DEDEDE';
+let one_color = '#00827E';
+let more_colors_first = '#22505F', more_colors_second = '#00827E', more_colors_third = '#4CB8E8', more_colors_fourth = '#919191';
 
 function getFirstChart() {
     //Bloque de la visualización
