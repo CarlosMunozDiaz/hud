@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUD</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,800,900&amp;display=swap" rel="stylesheet"> 
+    <title>HUD - Gráficos y mapas</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,800,900&amp;display=swap" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -61,6 +63,70 @@
             </div>
             <div class="chart__viz large" id="chart-three">
             </div>
+            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
+        </div>
+    </div>
+    <h2 style="font-size: 16px; font-weight: bold; margin-top: 48px; margin-bottom: 48px;">Mapa Buenos Aires</h2>
+    <div class="outer-chart">
+        <div class="chart">
+            <div class="chart__b-title--upper">
+                <div class="chart__sb-title">
+                    <h1 class="chart__title">Título para el mapa de Buenos Aires</h1>
+                    <h2 class="chart__subtitle">Subtítulo para el mapa de Buenos Aires</h2>
+                </div>
+            </div>
+            <!-- Primero -->
+            <div class="b-btn__map">
+                <button class="btn__map btn-ba active" id="btnZonasVerdesBA">Zonas verdes</button>
+                <button class="btn__map btn-ba" id="btnCallesBA">Distancia a zonas verdes</button>
+            </div>
+            <!-- Segundo -->
+            <div class="b-legend__map">
+                <div class="legend__map legend__alone legend-ba active" id="ldZonasVerdesBA">
+                    <span class="legend--item zona-verde">Zonas verdes</span>
+                </div>
+                <div class="legend__map legend-ba" id="ldCallesBA">
+                    <span class="legend--item calle-uno">Menos de 500m</span>
+                    <span class="legend--item calle-dos">Entre 500m y 1km</span>
+                    <span class="legend--item calle-tres">Entre 1 y 1,5km</span>
+                    <span class="legend--item calle-cuatro">Más de 1,5km</span>
+                </div>
+            </div>
+            <!-- Mapa -->
+            <div id="mapboxBA" class="b-map"></div>
+            <!-- Fuente -->
+            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
+        </div>
+    </div>
+    <h2 style="font-size: 16px; font-weight: bold; margin-top: 48px; margin-bottom: 48px;">Mapa San Salvador</h2>
+    <div class="outer-chart">
+        <div class="chart">
+            <div class="chart__b-title--upper">
+                <div class="chart__sb-title">
+                    <h1 class="chart__title">Título para el mapa de San Salvador</h1>
+                    <h2 class="chart__subtitle">Subtítulo para el mapa de San Salvador</h2>
+                </div>
+            </div>
+            <!-- Primero -->
+            <div class="b-btn__map">
+                <button class="btn__map btn-ss active" id="btnZonasVerdesSS">Zonas verdes</button>
+                <button class="btn__map btn-ss" id="btnCallesSS">Distancia a zonas verdes</button>
+            </div>
+            <!-- Segundo -->
+            <div class="b-legend__map">
+                <div class="legend__map legend__alone legend-ss active" id="ldZonasVerdesSS">
+                    <span class="legend--item zona-verde">Zonas verdes</span>
+                </div>
+                <div class="legend__map legend-ss" id="ldCallesSS">
+                    <span class="legend--item calle-uno">Menos de 500m</span>
+                    <span class="legend--item calle-dos">Entre 500m y 1km</span>
+                    <span class="legend--item calle-tres">Entre 1 y 1,5km</span>
+                    <span class="legend--item calle-cuatro">Más de 1,5km</span>
+                </div>
+            </div>
+            <!-- Mapa -->
+            <div id="mapboxSS" class="b-map"></div>
+            <!-- Fuente -->
             <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
         </div>
     </div>
