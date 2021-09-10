@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUD - Gráficos y mapas</title>
+    <!-- INICIO: Utilizar para visualizar correctamente mapas y estilos de visualizaciones -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,800,900&amp;display=swap" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
+    <!-- FINAL -->
 </head>
 <body>
-    <h2 style="font-size: 16px; font-weight: bold; margin-top: 12px; margin-bottom: 48px;">Gráfico 1</h2>
     <div class="outer-chart">
+        <!-- INICIO: Utilizar bloque 'chart' para mostrar este gráfico. Si no se desea algún elemento -el título, el subtítulo y/o la fuente-, se puede eliminar sin problemas -->
         <div class="chart">
             <div class="chart__b-title--upper">
                 <div class="chart__sb-title">
@@ -25,9 +27,10 @@
             </div>
             <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics</p>           
         </div>
+        <!-- FINAL -->
     </div>
-    <h2 style="font-size: 16px; font-weight: bold; margin-top: 12px; margin-bottom: 48px;">Gráfico 2</h2>
     <div class="outer-chart">
+        <!-- INICIO: Utilizar bloque 'chart' para mostrar este gráfico. Si no se desea algún elemento -el título, el subtítulo y/o la fuente-, se puede eliminar sin problemas -->
         <div class="chart">
             <div class="chart__b-title--upper">
                 <div class="chart__sb-title">
@@ -45,9 +48,10 @@
             </div>            
             <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>          
         </div>
+        <!-- FINAL -->
     </div>
-    <h2 style="font-size: 16px; font-weight: bold; margin-top: 48px; margin-bottom: 48px;">Gráfico 3</h2>
     <div class="outer-chart">
+        <!-- INICIO: Utilizar bloque 'chart' para mostrar este gráfico. Si no se desea algún elemento -el título, el subtítulo y/o la fuente-, se puede eliminar sin problemas -->
         <div class="chart">
             <div class="chart__b-title--upper">
                 <div class="chart__sb-title">
@@ -65,9 +69,10 @@
             </div>
             <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
         </div>
+        <!-- FINAL -->
     </div>
-    <h2 style="font-size: 16px; font-weight: bold; margin-top: 48px; margin-bottom: 48px;">Mapa Buenos Aires</h2>
     <div class="outer-chart">
+        <!-- INICIO: Utilizar bloque 'chart' para mostrar este gráfico. Si no se desea algún elemento -el título, el subtítulo y/o la fuente-, se puede eliminar sin problemas -->
         <div class="chart">
             <div class="chart__b-title--upper">
                 <div class="chart__sb-title">
@@ -75,12 +80,10 @@
                     <h2 class="chart__subtitle">Subtítulo para el mapa de Buenos Aires</h2>
                 </div>
             </div>
-            <!-- Primero -->
             <div class="b-btn__map">
                 <button class="btn__map btn-ba active" id="btnZonasVerdesBA">Zonas verdes</button>
                 <button class="btn__map btn-ba" id="btnCallesBA">Distancia a zonas verdes</button>
             </div>
-            <!-- Segundo -->
             <div class="b-legend__map">
                 <div class="legend__map legend__alone legend-ba active" id="ldZonasVerdesBA">
                     <span class="legend--item zona-verde">Zonas verdes</span>
@@ -92,14 +95,13 @@
                     <span class="legend--item calle-cuatro">Más de 1,5km</span>
                 </div>
             </div>
-            <!-- Mapa -->
             <div id="mapboxBA" class="b-map"></div>
-            <!-- Fuente -->
             <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
         </div>
+        <!-- FINAL -->
     </div>
-    <h2 style="font-size: 16px; font-weight: bold; margin-top: 48px; margin-bottom: 48px;">Mapa San Salvador</h2>
     <div class="outer-chart">
+        <!-- INICIO: Utilizar bloque 'chart' para mostrar este gráfico. Si no se desea algún elemento -el título, el subtítulo y/o la fuente-, se puede eliminar sin problemas -->
         <div class="chart">
             <div class="chart__b-title--upper">
                 <div class="chart__sb-title">
@@ -107,12 +109,10 @@
                     <h2 class="chart__subtitle">Subtítulo para el mapa de San Salvador</h2>
                 </div>
             </div>
-            <!-- Primero -->
             <div class="b-btn__map">
                 <button class="btn__map btn-ss active" id="btnZonasVerdesSS">Zonas verdes</button>
                 <button class="btn__map btn-ss" id="btnCallesSS">Distancia a zonas verdes</button>
             </div>
-            <!-- Segundo -->
             <div class="b-legend__map">
                 <div class="legend__map legend__alone legend-ss active" id="ldZonasVerdesSS">
                     <span class="legend--item zona-verde">Zonas verdes</span>
@@ -124,18 +124,21 @@
                     <span class="legend--item calle-cuatro">Más de 1,5km</span>
                 </div>
             </div>
-            <!-- Mapa -->
             <div id="mapboxSS" class="b-map"></div>
-            <!-- Fuente -->
             <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
         </div>
+        <!-- FINAL -->
     </div>
+    <!-- INICIO: Utilizar para poder mostrar el tooltip en gráficos -->
     <div class="chart__tooltip" id="chartTooltip">
         <p class="chart__tooltip--title"></p>
         <p class="chart__tooltip--text"></p>
     </div>
+    <!-- FINAL -->
+    <!-- INICIO: Utilizar para cargar lógica asociada a gráficos, mapas y tooltip -->
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="./js/tooltip.js"></script>
     <script src="./js/main.js"></script>
+    <!-- FINAL -->
 </body>
 </html>
