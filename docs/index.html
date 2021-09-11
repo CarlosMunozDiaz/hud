@@ -83,6 +83,8 @@
             <div class="b-btn__map">
                 <button class="btn__map btn-ba active" id="btnZonasVerdesBA">Zonas verdes</button>
                 <button class="btn__map btn-ba" id="btnCallesBA">Distancia a zonas verdes</button>
+                <button class="btn__map btn-ba" id="btnPoblacionBA">Población</button>
+                <button class="btn__map btn-ba" id="btnOvercrowdBA">Overcrowd</button>
             </div>
             <div class="b-legend__map">
                 <div class="legend__map legend__alone legend-ba active" id="ldZonasVerdesBA">
@@ -93,6 +95,20 @@
                     <span class="legend--item calle-dos">Entre 500m y 1km</span>
                     <span class="legend--item calle-tres">Entre 1 y 1,5km</span>
                     <span class="legend--item calle-cuatro">Más de 1,5km</span>
+                </div>
+                <div class="legend__map legend-ba" id="ldPoblacionBA">
+                    <span class="legend--item calle-uno">Menos de 2.500</span>
+                    <span class="legend--item calle-dos">Entre 2.500 y 5.000</span>
+                    <span class="legend--item calle-tres">Entre 5.000 y 7.500</span>
+                    <span class="legend--item calle-cuatro">Entre 7.500 y 10.000</span>
+                    <span class="legend--item calle-cinco">Más de 10.000</span>
+                </div>
+                <div class="legend__map legend-ba" id="ldOvercrowdBA">
+                    <span class="legend--item calle-uno">Menos 200</span>
+                    <span class="legend--item calle-dos">Entre 200 y 400</span>
+                    <span class="legend--item calle-tres">Entre 400 y 700</span>
+                    <span class="legend--item calle-cuatro">Entre 700 y 1.000</span>
+                    <span class="legend--item calle-cinco">Más de 1.000</span>
                 </div>
             </div>
             <div id="mapboxBA" class="b-map"></div>
@@ -112,6 +128,8 @@
             <div class="b-btn__map">
                 <button class="btn__map btn-ss active" id="btnZonasVerdesSS">Zonas verdes</button>
                 <button class="btn__map btn-ss" id="btnCallesSS">Distancia a zonas verdes</button>
+                <button class="btn__map btn-ss" id="btnPoblacionSS">Población</button>
+                <button class="btn__map btn-ss" id="btnOvercrowdSS">Overcrowd</button>
             </div>
             <div class="b-legend__map">
                 <div class="legend__map legend__alone legend-ss active" id="ldZonasVerdesSS">
@@ -122,6 +140,20 @@
                     <span class="legend--item calle-dos">Entre 500m y 1km</span>
                     <span class="legend--item calle-tres">Entre 1 y 1,5km</span>
                     <span class="legend--item calle-cuatro">Más de 1,5km</span>
+                </div>
+                <div class="legend__map legend-ss" id="ldPoblacionSS">
+                    <span class="legend--item calle-uno">Menos de 2.500</span>
+                    <span class="legend--item calle-dos">Entre 2.500 y 5.000</span>
+                    <span class="legend--item calle-tres">Entre 5.000 y 7.500</span>
+                    <span class="legend--item calle-cuatro">Entre 7.500 y 10.000</span>
+                    <span class="legend--item calle-cinco">Más de 10.000</span>
+                </div>
+                <div class="legend__map legend-ss" id="ldOvercrowdSS">
+                    <span class="legend--item calle-uno">Over. 1</span>
+                    <span class="legend--item calle-dos">Over. 2</span>
+                    <span class="legend--item calle-tres">Over. 3</span>
+                    <span class="legend--item calle-cuatro">Over. 4</span>
+                    <span class="legend--item calle-cinco">Over. 5</span>
                 </div>
             </div>
             <div id="mapboxSS" class="b-map"></div>

@@ -337,10 +337,6 @@ input:checked + .slider:before {
 }
 
 /**** INTEGRACIÓN DE ESTILOS DE MAPAS *****/
-.b-btn__map {
-    margin-top: 16px;
-}
-
 .btn__map {
     background-color: #D4D4D4;
     padding: 8px;
@@ -351,6 +347,7 @@ input:checked + .slider:before {
     color: #fff;
     font-size: 16px;
 
+    margin-top: 16px;
     margin-right: 8px;
 }
 
@@ -429,6 +426,10 @@ input:checked + .slider:before {
 
 .legend--item.calle-cuatro:before {
     background-color: #9CBDD2;
+}
+
+.legend--item.calle-cinco:before {
+    background-color: red;
 }
 
 .b-map {

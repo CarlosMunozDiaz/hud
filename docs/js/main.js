@@ -608,6 +608,32 @@ document.getElementById('btnCallesSS').addEventListener('click', function () {
     }
 });
 
+document.getElementById('btnPoblacionSS').addEventListener('click', function () {
+    if(currentBtnSS != 'btnPoblacionSS') {
+        //Cambio variables
+        currentBtnSS = 'btnPoblacionSS';
+        currentLegendSS ='ldPoblacionSS';
+
+        //Ejecución funciones
+        setBtnSS(currentBtnSS);
+        setLegendSS(currentLegendSS);
+        updatemapSS('salvador_pop');
+    }    
+});
+
+document.getElementById('btnOvercrowdSS').addEventListener('click', function () {
+    if(currentBtnSS != 'btnOvercrowdSS') {
+        //Cambio variables
+        currentBtnSS = 'btnOvercrowdSS';
+        currentLegendSS ='ldOvercrowdSS';
+
+        //Ejecución funciones
+        setBtnSS(currentBtnSS);
+        setLegendSS(currentLegendSS);
+        updatemapSS('salvador_overcrowd');
+    }    
+});
+
 //Funciones del mapa
 function initDataSS() {
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2FybG9tdW5veiIsImEiOiJjazcwZW8wZ2sxZWFyM2VtdnQwdjVpMXBuIn0.ltacbidw9otoDaT1RLCNcA';
@@ -655,6 +681,54 @@ function initDataSS() {
             }
             }
         );
+
+        mapSS.addLayer({
+            'id': 'layer_ss_pop',
+            'source': 'ss_greenspace',
+            'source-layer': 'salvador_pop_overcrowd-4sr8g5',
+            'layout': {'visibility': 'none'},           
+            'type': 'fill',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['get', 'pop_400m'],
+                    '#095677',
+                    2500,
+                    '#9B918C',
+                    5000,
+                    '#FEB531',
+                    7500,
+                    '#9CBDD2',
+                    10000,
+                    'red'
+                ],
+                'fill-opacity': 1
+            }
+        });
+
+        mapSS.addLayer({
+            'id': 'layer_ss_overcrowd',
+            'source': 'ss_greenspace',
+            'source-layer': 'salvador_pop_overcrowd-4sr8g5',
+            'layout': {'visibility': 'none'},           
+            'type': 'fill',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['get', 'overcrowd'],
+                    '#095677',
+                    200,
+                    '#9B918C',
+                    400,
+                    '#FEB531',
+                    700,
+                    '#9CBDD2',
+                    1000,
+                    'red'
+                ],
+                'fill-opacity': 1
+            }
+        });
         
         //Layer > Callejero
         mapSS.addLayer({
@@ -687,6 +761,8 @@ function initDataSS() {
 
         //Popup
         bind_event_ss('layer_ss_greenspace');
+        bind_event_ss('layer_ss_pop');
+        bind_event_ss('layer_ss_overcrowd');
         bind_event_ss('layer_ss_roads');
     });
 }
@@ -694,10 +770,24 @@ function initDataSS() {
 function updatemapSS(tipo) {
     if (tipo == 'salvador_pop_overcrowd') {
         mapSS.setLayoutProperty('layer_ss_roads', 'visibility', 'none');
+        mapSS.setLayoutProperty('layer_ss_pop', 'visibility', 'none');
+        mapSS.setLayoutProperty('layer_ss_overcrowd', 'visibility', 'none');
         mapSS.setLayoutProperty('layer_ss_greenspace', 'visibility', 'visible');
-    } else {
+    } else if (tipo == 'salvador_roads_distance') {
+        mapSS.setLayoutProperty('layer_ss_pop', 'visibility', 'none');
+        mapSS.setLayoutProperty('layer_ss_overcrowd', 'visibility', 'none');
         mapSS.setLayoutProperty('layer_ss_greenspace', 'visibility', 'none');
         mapSS.setLayoutProperty('layer_ss_roads', 'visibility', 'visible');
+    } else if (tipo == 'salvador_pop') {
+        mapSS.setLayoutProperty('layer_ss_pop', 'visibility', 'visible');
+        mapSS.setLayoutProperty('layer_ss_overcrowd', 'visibility', 'none');
+        mapSS.setLayoutProperty('layer_ss_greenspace', 'visibility', 'none');
+        mapSS.setLayoutProperty('layer_ss_roads', 'visibility', 'none');
+    } else {
+        mapSS.setLayoutProperty('layer_ss_pop', 'visibility', 'none');
+        mapSS.setLayoutProperty('layer_ss_overcrowd', 'visibility', 'visible');
+        mapSS.setLayoutProperty('layer_ss_greenspace', 'visibility', 'none');
+        mapSS.setLayoutProperty('layer_ss_roads', 'visibility', 'none');
     }
 }
 
@@ -743,12 +833,17 @@ function bind_event_ss(id){
 }
 
 function get_tooltip_text_ss(props, id) {
+    console.log(props);
     let html = '';
     if(id == 'layer_ss_greenspace') {
         html = `<p>Hectáreas de esta zona: ${props.properties.area_ha}</p>`;
-    } else {
+    } else if (id == 'layer_ss_roads') {
         html = `<p><b>Calle ${props.properties.name}</b></p>
             <p>Distancia a una zona verde: ${props.properties['Hub distan'].toFixed(0)} metros</p>`;
+    } else if (id == 'layer_ss_pop') {
+        html = `<p>Población dentro de los 400 metros: ${numberWithCommas(props.properties['pop_400m'].toFixed(1))}</p>`;
+    } else {
+        html = `Overcrowding: ${numberWithCommas(props.properties['overcrowd'].toFixed(1))}`;
     }
     return html;
 }
@@ -784,6 +879,32 @@ document.getElementById('btnCallesBA').addEventListener('click', function () {
         setLegendBA(currentLegendBA);
         updateMapBA('buenos_roads_distance');
     }
+});
+
+document.getElementById('btnPoblacionBA').addEventListener('click', function () {
+    if(currentBtnBA != 'btnPoblacionBA') {
+        //Cambio variables
+        currentBtnBA = 'btnPoblacionBA';
+        currentLegendBA ='ldPoblacionBA';
+
+        //Ejecución funciones
+        setBtnBA(currentBtnBA);
+        setLegendBA(currentLegendBA);
+        updateMapBA('buenos_pop');
+    }    
+});
+
+document.getElementById('btnOvercrowdBA').addEventListener('click', function () {
+    if(currentBtnBA != 'btnOvercrowdBA') {
+        //Cambio variables
+        currentBtnBA = 'btnOvercrowdBA';
+        currentLegendBA ='ldOvercrowdBA';
+
+        //Ejecución funciones
+        setBtnBA(currentBtnBA);
+        setLegendBA(currentLegendBA);
+        updateMapBA('buenos_overcrowd');
+    }    
 });
 
 //Funciones del mapa
@@ -833,6 +954,54 @@ function initDataBA() {
             }
             }
         );
+
+        mapBA.addLayer({
+            'id': 'layer_ba_pop',
+            'source': 'ba_greenspace',
+            'source-layer': 'buenos_pop_overcrowd-7v3q8c',
+            'layout': {'visibility': 'none'},           
+            'type': 'fill',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['get', 'pop_400m'],
+                    '#095677',
+                    2500,
+                    '#9B918C',
+                    5000,
+                    '#FEB531',
+                    7500,
+                    '#9CBDD2',
+                    10000,
+                    'red'
+                ],
+                'fill-opacity': 1
+            }
+        });
+
+        mapBA.addLayer({
+            'id': 'layer_ba_overcrowd',
+            'source': 'ba_greenspace',
+            'source-layer': 'buenos_pop_overcrowd-7v3q8c',
+            'layout': {'visibility': 'none'},           
+            'type': 'fill',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['get', 'overcrowd'],
+                    '#095677',
+                    200,
+                    '#9B918C',
+                    400,
+                    '#FEB531',
+                    700,
+                    '#9CBDD2',
+                    1000,
+                    'red'
+                ],
+                'fill-opacity': 1
+            }
+        });
         
         //Layer > Callejero
         mapBA.addLayer({
@@ -865,6 +1034,8 @@ function initDataBA() {
 
         //Popup
         bind_event_ba('layer_ba_greenspace');
+        bind_event_ba('layer_ba_pop');
+        bind_event_ba('layer_ba_overcrowd');
         bind_event_ba('layer_ba_roads');
     });
 }
@@ -872,10 +1043,24 @@ function initDataBA() {
 function updateMapBA(tipo) {
     if (tipo == 'buenos_pop_overcrowd') {
         mapBA.setLayoutProperty('layer_ba_roads', 'visibility', 'none');
+        mapBA.setLayoutProperty('layer_ba_pop', 'visibility', 'none');
+        mapBA.setLayoutProperty('layer_ba_overcrowd', 'visibility', 'none');
         mapBA.setLayoutProperty('layer_ba_greenspace', 'visibility', 'visible');
+    } else if (tipo == 'buenos_roads_distance') {
+        mapBA.setLayoutProperty('layer_ba_greenspace', 'visibility', 'none');
+        mapBA.setLayoutProperty('layer_ba_pop', 'visibility', 'none');
+        mapBA.setLayoutProperty('layer_ba_overcrowd', 'visibility', 'none');
+        mapBA.setLayoutProperty('layer_ba_roads', 'visibility', 'visible');
+    } else if (tipo == 'buenos_pop') {
+        mapBA.setLayoutProperty('layer_ba_greenspace', 'visibility', 'none');
+        mapBA.setLayoutProperty('layer_ba_pop', 'visibility', 'visible');
+        mapBA.setLayoutProperty('layer_ba_overcrowd', 'visibility', 'none');
+        mapBA.setLayoutProperty('layer_ba_roads', 'visibility', 'none');
     } else {
         mapBA.setLayoutProperty('layer_ba_greenspace', 'visibility', 'none');
-        mapBA.setLayoutProperty('layer_ba_roads', 'visibility', 'visible');
+        mapBA.setLayoutProperty('layer_ba_pop', 'visibility', 'none');
+        mapBA.setLayoutProperty('layer_ba_overcrowd', 'visibility', 'visible');
+        mapBA.setLayoutProperty('layer_ba_roads', 'visibility', 'none');
     }
 }
 
@@ -924,13 +1109,16 @@ function get_tooltip_text_ba(props, id) {
     let html = '';
     if(id == 'layer_ba_greenspace') {
         html = `<p>Hectáreas de esta zona: ${props.properties.area_ha}</p>`;
-    } else {
+    } else if (id == 'layer_ba_roads') {
         html = `<p><b>Calle ${props.properties.name}</b></p>
             <p>Distancia a una zona verde: ${props.properties['Hub distan'].toFixed(0)} metros</p>`;
+    } else if (id == 'layer_ba_pop') {
+        html = `<p>Población dentro de los 400 metros: ${numberWithCommas(props.properties['pop_400m'].toFixed(1))}</p>`;
+    } else {
+        html = `Overcrowding: ${numberWithCommas(props.properties['overcrowd'].toFixed(1))}`;
     }
     return html;
 }
-
 
 /* Helpers */
 function numberWithCommas(x) {
