@@ -387,7 +387,7 @@ function getSecondBisChart() {
 
         //Disposición del eje Y
         let y = d3.scaleLinear()
-            .domain([0,400])
+            .domain([0,60])
             .range([height, 0]);
 
         let yAxis = function(svg){
