@@ -19,7 +19,7 @@ function getFirstChart() {
         if (error) throw error;
         data = data.reverse();
         //Creación del elemento SVG en el contenedor
-        let margin = {top: 5, right: 17.5, bottom: 25, left: 85};
+        let margin = {top: 5, right: 17.5, bottom: 25, left: 100};
         let {width, height, chart} = setChart(chartBlock, margin);
 
         //Disposición del eje X
@@ -149,7 +149,7 @@ function getSecondChart() {
         }
 
         //Creación del elemento SVG en el contenedor
-        let margin = {top: 15, right: 5, bottom: 120, left: 30};
+        let margin = {top: 15, right: 5, bottom: 140, left: 30};
         let {width, height, chart} = setChart(chartBlock, margin);
 
         //Disposición del eje X
@@ -170,7 +170,43 @@ function getSecondChart() {
                     .attr("transform", function(d) {
                         return "rotate(-65)" 
                     });
-            });
+            })
+            g.call(function(g){g.selectAll('.tick text').on('mouseenter mousemove', function(d) {
+                
+                //Texto tooltip
+                let texto = '';
+                switch(d) {
+                    case 'Parques de bolsillo':
+                        texto = 'Parques de bolsillo: Menos de 0.4 has';
+                        break;
+                    case 'Parques pequeños':
+                        texto = 'Parques pequeños: Entre 0.4 y 2 has';
+                        break;
+                    case 'Parques distritales':
+                        texto = 'Parques distritales: Entre 2 y 20 has';
+                        break;
+                    case 'Parques metropolitanos':
+                        texto = 'Parques metropolitanos: Entre 20 y 60 has';
+                        break;
+                    case 'Parques regionales':
+                        texto = 'Parques regionales: Entre 60 y 200 has';
+                        break;
+                    default:
+                        texto = '';
+                        break;
+                }
+
+                let html = `<p class="chart__tooltip--title">${texto}</p>`;                
+                tooltip.html(html);
+
+                //Tooltip
+                positionTooltip(window.event, tooltip);
+                getInTooltip(tooltip);
+            })});
+            g.call(function(g){g.selectAll('.tick text').on('mouseleave', function(d) { 
+                //Quitamos el tooltip
+                getOutTooltip(tooltip); 
+            })});
         }
 
         //Inicialización eje X
@@ -229,7 +265,7 @@ function getSecondChart() {
                     let css = e[i].getAttribute('class').split('-')[1];
                     //Texto
                     let html = `<p class="chart__tooltip--title">${d.tipo}</p>
-                                <p class="chart__tooltip--text">${d.valor}</p>`;
+                                <p class="chart__tooltip--text">${d.valor}%</p>`;
 
                     tooltip.html(html);
 
@@ -285,7 +321,7 @@ function getSecondBisChart() {
         }
 
         //Creación del elemento SVG en el contenedor
-        let margin = {top: 15, right: 5, bottom: 120, left: 30};
+        let margin = {top: 15, right: 5, bottom: 140, left: 30};
         let {width, height, chart} = setChart(chartBlock, margin);
 
         //Disposición del eje X
@@ -306,7 +342,42 @@ function getSecondBisChart() {
                     .attr("transform", function(d) {
                         return "rotate(-65)" 
                     });
-            });
+            })
+            g.call(function(g){g.selectAll('.tick text').on('mouseenter mousemove', function(d) {
+                let texto = '';
+                switch(d) {
+                    case 'Parques de bolsillo':
+                        texto = 'Parques de bolsillo: Menos de 0.4 has';
+                        break;
+                    case 'Parques pequeños':
+                        texto = 'Parques pequeños: Entre 0.4 y 2 has';
+                        break;
+                    case 'Parques distritales':
+                        texto = 'Parques distritales: Entre 2 y 20 has';
+                        break;
+                    case 'Parques metropolitanos':
+                        texto = 'Parques metropolitanos: Entre 20 y 60 has';
+                        break;
+                    case 'Parques regionales':
+                        texto = 'Parques regionales: Entre 60 y 200 has';
+                        break;
+                    default:
+                        texto = '';
+                        break;
+                }
+
+                //Texto tooltip
+                let html = `<p class="chart__tooltip--title">${texto}</p>`;                
+                tooltip.html(html);
+
+                //Tooltip
+                positionTooltip(window.event, tooltip);
+                getInTooltip(tooltip);
+            })});
+            g.call(function(g){g.selectAll('.tick text').on('mouseleave', function(d) { 
+                //Quitamos el tooltip
+                getOutTooltip(tooltip); 
+            })});
         }
 
         //Inicialización eje X
@@ -365,7 +436,7 @@ function getSecondBisChart() {
                     let css = e[i].getAttribute('class').split('-')[1];
                     //Texto
                     let html = `<p class="chart__tooltip--title">${d.tipo}</p>
-                                <p class="chart__tooltip--text">${d.valor}</p>`;
+                                <p class="chart__tooltip--text">${d.valor}%</p>`;
 
                     tooltip.html(html);
 
@@ -424,7 +495,7 @@ function getThirdChart() {
         
         data = data.reverse();
         //Creación del elemento SVG en el contenedor
-        let margin = {top: 5, right: 17.5, bottom: 25, left: 90};
+        let margin = {top: 5, right: 17.5, bottom: 25, left: 100};
         let {width, height, chart} = setChart(chartBlock, margin);
 
         let keys = data.columns.slice(1);
