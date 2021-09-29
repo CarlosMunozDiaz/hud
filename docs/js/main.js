@@ -13,7 +13,7 @@ function getFirstChart() {
     d3.csv(localFile, function(d) {
         return {
             tipo: d.city,
-            porcentaje: +d['m2_per_capita'].replace(/,/g, '.')
+            m_capita: +d['m2_per_capita'].replace(/,/g, '.')
         }
     }, function(error, data) {
         if (error) throw error;
@@ -30,7 +30,7 @@ function getFirstChart() {
 
         //Estilos para eje X
         let xAxis = function(g){
-            g.call(d3.axisBottom(x).ticks(6).tickFormat(function(d) { return d + '%'; }))
+            g.call(d3.axisBottom(x).ticks(6).tickFormat(function(d) { return d; }))
             g.call(function(g){
                 g.selectAll('.tick line')
                     .attr('class', function(d,i) {
@@ -93,7 +93,7 @@ function getFirstChart() {
                     let css = e[i].getAttribute('class').split('-')[1];
                     //Texto
                     let html = `<p class="chart__tooltip--title">${d.tipo}</p>
-                                <p class="chart__tooltip--text">${numberWithCommas(d.porcentaje.toFixed(2))}%</p>`; //Solucionar recogida de información
+                                <p class="chart__tooltip--text">${numberWithCommas(d.m_capita.toFixed(2))} m2 per cápita</p>`;
 
                     tooltip.html(html);
 
@@ -124,10 +124,10 @@ function getFirstChart() {
                 .transition()
                 .duration(3000)
                 .attr("x", function (d) {
-                    return x(Math.min(0, d.porcentaje));
+                    return x(Math.min(0, d.m_capita));
                 })
                 .attr("width", function (d) {
-                    return Math.abs(x(d.porcentaje) - x(0));
+                    return Math.abs(x(d.m_capita) - x(0));
                 });
         }                   
     });
