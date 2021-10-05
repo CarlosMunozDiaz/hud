@@ -337,6 +337,14 @@ input:checked + .slider:before {
     font-weight: 700;
 }
 
+.data-note {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 10px;
+    margin-top: 8px;
+    font-style: italic;
+}
+
 /**** INTEGRACIÓN DE ESTILOS DE MAPAS *****/
 .btn__map {
     background-color: #D4D4D4;
