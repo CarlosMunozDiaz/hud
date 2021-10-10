@@ -346,6 +346,11 @@ input:checked + .slider:before {
 }
 
 /**** INTEGRACIÓN DE ESTILOS DE MAPAS *****/
+.b-btn__map {
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn__map {
     background-color: #D4D4D4;
     padding: 8px;
@@ -358,6 +363,10 @@ input:checked + .slider:before {
 
     margin-top: 16px;
     margin-right: 8px;
+}
+
+.btn__map:last-of-type {
+    margin-right: 0px;
 }
 
 .btn__map.active {
@@ -374,7 +383,7 @@ input:checked + .slider:before {
     /* Disposición de elementos */
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -494,5 +503,11 @@ input:checked + .slider:before {
     /**** INTEGRACIÓN DE ESTILOS DE MAPAS *****/
     .legend__map.active {
         justify-content: flex-start;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    .b-btn__map {
+        display: block;
     }
 }
