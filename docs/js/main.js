@@ -1195,7 +1195,6 @@ function get_tooltip_text_ba(props, id) {
 
 /* Helpers */
 function numberWithCommas(x) {
-    console.log(x);
-    return x.toString().replace(/\./g, ',').replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
-    //return x.toString().replace(/\./g, ',');
+    //return x.toString().replace(/\./g, ',').replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
+    return x.toString().replace(/\./g, ',');
 }
