@@ -713,7 +713,8 @@ function initDataSS() {
         style: 'mapbox://styles/mapbox/light-v10',
         center: [-89.184, 13.740],
         minZoom: 10,
-        zoom: 11
+        zoom: 11,
+        attributionControl: false
     });
 
     /* Tooltip */
@@ -912,9 +913,9 @@ function get_tooltip_text_ss(props, id) {
         html = `<p><b>Calle ${props.properties.name}</b></p>
             <p>Distancia a una zona verde: ${props.properties['Hub distan'].toFixed(0)} metros</p>`;
     } else if (id == 'layer_ss_pop') {
-        html = `<p>Población dentro de los 400 metros: ${numberWithCommas(props.properties['pop_400m'].toFixed(1))}</p>`;
+        html = `<p>${numberWithCommas(props.properties['pop_400m'].toFixed(1))} habitantes a los que esta zona verde atiende en un radio de 400 metros</p>`;
     } else {
-        html = `Overcrowding: ${numberWithCommas(props.properties['overcrowd'].toFixed(1))}`;
+        html = `<p>Índice de riesgo de aglomeración: ${numberWithCommas(props.properties['overcrowd'].toFixed(1))} habitantes por hectárea</p>`;
     }
     return html;
 }
@@ -986,7 +987,8 @@ function initDataBA() {
         style: 'mapbox://styles/mapbox/light-v10',
         center: [-58.5033387, -34.6158037],
         minZoom: 9,
-        zoom: 9
+        zoom: 9,
+        attributionControl: false
     });
 
     /* Tooltip */
@@ -1184,15 +1186,16 @@ function get_tooltip_text_ba(props, id) {
         html = `<p><b>Calle ${props.properties.name}</b></p>
             <p>Distancia a una zona verde: ${props.properties['Hub distan'].toFixed(0)} metros</p>`;
     } else if (id == 'layer_ba_pop') {
-        html = `<p>Población dentro de los 400 metros: ${numberWithCommas(props.properties['pop_400m'].toFixed(1))}</p>`;
+        html = `<p>${numberWithCommas(props.properties['pop_400m'].toFixed(1))} habitantes a los que esta zona verde atiende en un radio de 400 metros</p>`;
     } else {
-        html = `Overcrowding: ${numberWithCommas(props.properties['overcrowd'].toFixed(1))}`;
+        html = `<p>Índice de riesgo de aglomeración: ${numberWithCommas(props.properties['overcrowd'].toFixed(1))} habitantes por hectárea</p>`;
     }
     return html;
 }
 
 /* Helpers */
 function numberWithCommas(x) {
-    //return x.toString().replace(/\./g, ',').replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
-    return x.toString().replace(/\./g, ',');
+    console.log(x);
+    return x.toString().replace(/\./g, ',').replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
+    //return x.toString().replace(/\./g, ',');
 }

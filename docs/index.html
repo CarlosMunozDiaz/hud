@@ -19,13 +19,12 @@
         <div class="chart">
             <div class="chart__b-title--upper">
                 <div class="chart__sb-title">
-                    <h1 class="chart__title">Espacio verde urbano per cápita en 21 ciudades</h1>
                     <h2 class="chart__subtitle">Metros cuadrados per cápita</h2>
                 </div>
             </div>
             <div class="chart__viz large" id="chart-one">
             </div>
-            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics</p>           
+            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics (2020)</p>           
         </div>
         <!-- FINAL -->
     </div>
@@ -34,7 +33,6 @@
         <div class="chart">
             <div class="chart__b-title--upper">
                 <div class="chart__sb-title">
-                    <h1 class="chart__title">Porcentaje de espacios verdes según su tamaño en Bridgetown y San José</h1>
                     <h2 class="chart__subtitle">Datos porcentuales</h2>
                 </div>
             </div>
@@ -46,7 +44,7 @@
                     <h2>San José</h2>
                 </div>
             </div>            
-            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>          
+            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics (2020). Datos procesados a través de Google Earth Engine</p>          
         </div>
         <!-- FINAL -->
     </div>
@@ -55,7 +53,6 @@
         <div class="chart">
             <div class="chart__b-title--upper">
                 <div class="chart__sb-title">
-                    <h1 class="chart__title">Porcentaje de población con acceso a espacios verdes</h1>
                     <h2 class="chart__subtitle">Datos en porcentajes. Espacios verdes divididos según distancia</h2>
                 </div>
             </div>
@@ -67,19 +64,13 @@
             </div>
             <div class="chart__viz large" id="chart-three">
             </div>
-            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
+            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics (2020). Datos procesados a través de Google Earth Engine</p>
         </div>
         <!-- FINAL -->
     </div>
     <div class="outer-chart">
         <!-- INICIO: Utilizar bloque 'chart' para mostrar este gráfico. Si no se desea algún elemento -el título, el subtítulo y/o la fuente-, se puede eliminar sin problemas -->
         <div class="chart">
-            <div class="chart__b-title--upper">
-                <div class="chart__sb-title">
-                    <h1 class="chart__title">Título para el mapa de Buenos Aires</h1>
-                    <h2 class="chart__subtitle">Subtítulo para el mapa de Buenos Aires</h2>
-                </div>
-            </div>
             <div class="b-btn__map">
                 <button class="btn__map btn-ba active" id="btnZonasVerdesBA">Zonas verdes</button>
                 <button class="btn__map btn-ba" id="btnCallesBA">Distancia a zonas verdes</button>
@@ -104,29 +95,23 @@
                     <span class="legend--item calle-cinco">Más de 10.000</span>
                 </div>
                 <div class="legend__map legend-ba" id="ldOvercrowdBA">
-                    <span class="legend--item calle-uno">Menos 200</span>
-                    <span class="legend--item calle-dos">Entre 200 y 400</span>
-                    <span class="legend--item calle-tres">Entre 400 y 700</span>
-                    <span class="legend--item calle-cuatro">Entre 700 y 1.000</span>
-                    <span class="legend--item calle-cinco">Más de 1.000</span>
+                    <span class="legend--item calle-uno">Menos 200 (Muy bajo)</span>
+                    <span class="legend--item calle-dos">Entre 200 y 400 (Bajo)</span>
+                    <span class="legend--item calle-tres">Entre 400 y 700 (Medio)</span>
+                    <span class="legend--item calle-cuatro">Entre 700 y 1.000 (Alto)</span>
+                    <span class="legend--item calle-cinco">Más de 1.000 (Muy alto)</span>
                 </div>
             </div>
             <div id="mapboxBA" class="b-map"></div>
-            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
-            <p class="data-note">* Cantidad de población (número de habitantes) que se encuentra en un radio de 400 metros de un espacio público.</p>
-            <p class="data-note">** Ratio de población que vive en un radio de 400 metros de un espacio público, dividido por el área del espacio público (número de habitantes / hectáreas)</p>
+            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics (2020). Datos procesados a través de Google Earth Engine</p>
+            <p class="data-note">* Cantidad de población (número de habitantes) servida por la zona verde en un radio de 400 metros.</p>
+            <p class="data-note">** Índice de riesgo de aglomeración: Número de habitantes servidos por la zona verde en un radio de 400 metros / Hectáreas de la zona verde</p>
         </div>
         <!-- FINAL -->
     </div>
     <div class="outer-chart">
         <!-- INICIO: Utilizar bloque 'chart' para mostrar este gráfico. Si no se desea algún elemento -el título, el subtítulo y/o la fuente-, se puede eliminar sin problemas -->
         <div class="chart">
-            <div class="chart__b-title--upper">
-                <div class="chart__sb-title">
-                    <h1 class="chart__title">Título para el mapa de San Salvador</h1>
-                    <h2 class="chart__subtitle">Subtítulo para el mapa de San Salvador</h2>
-                </div>
-            </div>
             <div class="b-btn__map">
                 <button class="btn__map btn-ss active" id="btnZonasVerdesSS">Zonas verdes</button>
                 <button class="btn__map btn-ss" id="btnCallesSS">Distancia a zonas verdes</button>
@@ -151,17 +136,17 @@
                     <span class="legend--item calle-cinco">Más de 10.000</span>
                 </div>
                 <div class="legend__map legend-ss" id="ldOvercrowdSS">
-                    <span class="legend--item calle-uno">Menos 200</span>
-                    <span class="legend--item calle-dos">Entre 200 y 400</span>
-                    <span class="legend--item calle-tres">Entre 400 y 700</span>
-                    <span class="legend--item calle-cuatro">Entre 700 y 1.000</span>
-                    <span class="legend--item calle-cinco">Más de 1.000</span>
+                    <span class="legend--item calle-uno">Menos 200 (Muy bajo)</span>
+                    <span class="legend--item calle-dos">Entre 200 y 400 (Bajo)</span>
+                    <span class="legend--item calle-tres">Entre 400 y 700 (Medio)</span>
+                    <span class="legend--item calle-cuatro">Entre 700 y 1.000 (Alto)</span>
+                    <span class="legend--item calle-cinco">Más de 1.000 (Muy alto)</span>
                 </div>
             </div>
             <div id="mapboxSS" class="b-map"></div>
-            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics basado en Google Earth Engine</p>
-            <p class="data-note">* Cantidad de población (número de habitantes) que se encuentra en un radio de 400 metros de un espacio público.</p>
-            <p class="data-note">** Ratio de población que vive en un radio de 400 metros de un espacio público, dividido por el área del espacio público (número de habitantes / hectáreas)</p>
+            <p class="data-source"><span class="strong">Fuente:</span> Vivid Economics (2020). Datos procesados a través de Google Earth Engine</p>
+            <p class="data-note">* Cantidad de población (número de habitantes) servida por la zona verde en un radio de 400 metros.</p>
+            <p class="data-note">** Índice de riesgo de aglomeración: Número de habitantes servidos por la zona verde en un radio de 400 metros / Hectáreas de la zona verde</p>
         </div>
         <!-- FINAL -->
     </div>
